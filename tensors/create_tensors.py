@@ -47,7 +47,14 @@ def create_tensor_from_data():
     print(f"type: {type(tensor_2d)}")
     print('-' * 30)
 
-    # 1.3 Create a tensor from a NumPy array
+    # 1.3 Create a 3D tensor
+    data_3d = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+    tensor_3d = torch.tensor(data_3d)
+    print(f"3D Tensor:\n{tensor_3d}")
+    print(f"type: {type(tensor_3d)}")
+    print('-' * 30)
+
+    # 1.4 Create a tensor from a NumPy array
     data_np = np.random.randint(0, 10, (2, 3))
     tensor_from_np = torch.tensor(data_np)
     print(f"Tensor from NumPy array:\n{tensor_from_np}")
