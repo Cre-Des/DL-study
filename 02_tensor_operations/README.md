@@ -100,7 +100,7 @@ hadamard_result2 = torch.mul(tensor1, tensor2)
 
 ### 矩阵乘法 
 
-设有矩阵$\mathbf{A} \in \mathbb{R}^{n \times m}, \mathbf{B} \in \mathbb{R}^{m \times p}$, 则$\mathbf{A}\mathbf{B}\in \mathbb{R}^{n \times p}$
+设有矩阵 $\mathbf{A} \in \mathbb{R}^{n \times m}, \mathbf{B} \in \mathbb{R}^{m \times p}$, 则$\mathbf{A}\mathbf{B}\in \mathbb{R}^{n \times p}$
 
 - 运算符 `@` 用于进行两个矩阵的乘积运算
 - `torch.matmul`对进行乘积运算的两矩阵形状没有限定. 对于输入的shape不同的张量, 对应的最后几个维度必须符合矩阵运算规则
