@@ -4,7 +4,7 @@ This is a example code file for creating tensors.
 Basic ways to create tensors using PyTorch.
     torch.tensor() - Create a tensor from data.
     torch.Tensor() - Create a tensor for a special size or from data .
-    torch.IntTensor(), torch.FloatTensor, torch.DoubleTensor - create a tensor for special formats.
+    torch.IntTensor(), torch.FloatTensor, torch.DoubleTensor - create a tensor for special data types.
 
 data types:
     torch float16 - 16-bit floating point (torch.half)
@@ -56,7 +56,7 @@ def create_tensor_from_data():
 
     # 1.4 Create a tensor from a NumPy array
     data_np = np.random.randint(0, 10, (2, 3))
-    tensor_from_np = torch.tensor(data_np)
+    tensor_from_np = torch.tensor(data_np, dtype=torch.float)
     print(f"Tensor from NumPy array:\n{tensor_from_np}")
     print(f"type: {type(tensor_from_np)}")
     print('-' * 30)
