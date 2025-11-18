@@ -211,15 +211,19 @@ torch.stack((tensor1, tensor2), dim=0)
 
 ## 8. 自动微分模块
 对损失函数求导, 结合反向传播, 更新权重参数 $\boldsymbol{w}, \boldsymbol{b}$
+
 $$
 \boldsymbol{z}=\boldsymbol{w}^{\mathrm{T}}\mathbf{X}+\boldsymbol{b}
 $$
+
 $$
 f_\mathrm{loss} = \left \| \boldsymbol{y}-\boldsymbol{z} \right \|_2 
 $$
+
 $$
 \boldsymbol{w}^{(k+1)}=\boldsymbol{w}^{(k)}-\alpha \frac{\partial f_\mathrm{loss}}{\partial \boldsymbol{w}} , \boldsymbol{b}^{(k+1)}=\boldsymbol{b}^{(k)}-\alpha \frac{\partial f_\mathrm{loss}}{\partial \boldsymbol{b}} 
 $$
+
 ```python
 # 定义可以自动微分的张量
 w = torch.tensor(10, requires_grad=True, dtype=torch.float)
