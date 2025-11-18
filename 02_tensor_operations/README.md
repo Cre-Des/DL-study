@@ -1,17 +1,17 @@
 # 张量的操作与基本运算
 ## 1. 张量和Numpy之间相互转换
 
-(1) 张量转换为numpy数组
+### 张量转换为numpy数组
 ```python
 data_tensor.numpy()
 data_tensor.numpy().copy()
 ```
-(2) numpy转换为张量
+### numpy转换为张量
 ```python
 torch.from_numpy(data_numpy)
 torch.tensor(data_numpy)
 ```
-(3) 标量张量和数字转换
+### 标量张量和数字转换
 ```python
 tensor.item()
 ```
@@ -134,4 +134,36 @@ torch.exp(tensor) # 指数, e^x 其中x为张量中的元素
 torch.log(tensor) # 各元素的自然对数
 torch.log2(tensor) # 各元素的 log2 对数
 torch.log10(tensor)  # 各元素的 log10 对数
+```
+
+## 5. 张量索引操作
+### 简单索引
+```python
+tensor[row, col]
+tensor[row_index, :]
+tensor[:, col_index]
+```
+### 列表索引
+```python
+tensor[[row_indices], [col_indices]]
+# 获取第0, 1行，第1, 2列的四个元素
+tensor[[[0], [1]], [1, 2]]
+```
+### 范围索引
+```python
+tensor[:3, :2]
+# 获取所有奇数行偶数列的数据
+tensor[::2, 1::2]
+```
+### 布尔索引
+```python
+#第二列中大于5的元素
+tensor[tensor[:, 2] > 5, 2]
+#第二列中大于5的元素所在行
+tensor[tensor[:, 2] > 5]
+```
+### 多维索引
+```python
+# 第0维的第1个数据
+tensor_3d[0, :, :]
 ```
