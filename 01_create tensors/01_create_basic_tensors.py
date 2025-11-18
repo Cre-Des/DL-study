@@ -1,5 +1,5 @@
 '''
-This is a example code file for creating tensors.
+This is an example code file for creating tensors.
 
 Basic ways to create tensors using PyTorch.
     torch.tensor() - Create a tensor from data.

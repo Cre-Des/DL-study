@@ -1,5 +1,5 @@
 '''
-A example to show how to create specific data type tensors and convert tensors data types in PyTorch.
+An example to show how to create specific data type tensors and convert tensors data types in PyTorch.
 
 functions.
     - type()

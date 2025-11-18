@@ -1,5 +1,5 @@
 '''
-A example to illustrate tensor basic computation operations.
+An example to illustrate tensor basic computation operations.
 
 Important operations:
     - Addition: tensor1 + tensor2 or torch.add(tensor1, tensor2)

@@ -1,5 +1,5 @@
 '''
-A example to illustrate tensor conversion operations.
+An example to illustrate tensor conversion operations.
 
 Tensor to Numpy array.
     - tensor.numpy() Shared memory.

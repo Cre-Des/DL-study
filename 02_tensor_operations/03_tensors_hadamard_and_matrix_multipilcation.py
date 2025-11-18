@@ -1,5 +1,5 @@
 '''
-A example to illustrate tensor hadamard product and matrix multiplication operations.
+An example to illustrate tensor hadamard product and matrix multiplication operations.
 
 Important operations:
     - Hadamard Product (Element-wise Multiplication): 

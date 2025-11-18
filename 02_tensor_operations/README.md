@@ -167,3 +167,66 @@ tensor[tensor[:, 2] > 5]
 # 第0维的第1个数据
 tensor_3d[0, :, :]
 ```
+
+## 6. 张量的形状操作
+### `reshape()`
+不改变张量内容的情况下改变形状, 改变前后元素数目相同. 
+```python
+tensor.reshape(size)
+```
+### `squeeze()` 与 `unsqueeze()`
+`squeeze()` 删除所有为 1 的维度.  
+`unsqueeze()` 在指定轴上添加一个 (1) 维度. 
+```python
+tensor.squeeze()
+tensor.unsqueeze(dim)
+```
+### `transpose()` 与 `permute()`
+`transpose()`: 一次交换两个维度  
+`permute()`: 一次交换任意维度
+```python
+tensor.transpose(dim0, dim1)
+tensor.permute([indexs of original tensor])
+```
+
+### `view()`, `contiguous()`, `is_contiguous()`
+`view` 函数也可以用于修改张量的形状, 只能用于修改 **连续** 的张量. 
+在PyTorch中, 有些张量的底层数据在内存中的存储顺序与其在张量中的逻辑顺序不一致. `view` 函数无法对这样的张量进行变形处理.  
+例如: 一个张量经过了 `transpose` 或者 `permute` 函数的处理之后, 就无法使用 `view`函数进行形状操作.   
+`contiguous()` 可以将张量转换为连续的. 
+`is_contiguous()` 可以判断张量是否为连续的. 
+```python
+tensor.view(New Shape)
+tensor.contiguous()
+tensor.is_contiguous()
+```
+
+## 7. 张量拼接操作
+`torch.cat()`函数可以将多个张量根据指定的维度拼接起来, 不改变维度数.  
+`torch.stack()`函数会在一个新的维度上连接一系列张量，这会增加一个新维度, 并且所有输入张量的形状必须完全相同. 
+```python
+torch.cat((tensor1, tensor2), dim=0)
+torch.stack((tensor1, tensor2), dim=0)
+```
+
+## 8. 自动微分模块
+对损失函数求导, 结合反向传播, 更新权重参数 $\boldsymbol{w}, \boldsymbol{b}$
+$$
+\boldsymbol{z}=\boldsymbol{w}^{\mathrm{T}}\mathbf{X}+\boldsymbol{b}
+$$
+$$
+f_\mathrm{loss} = \left \| \boldsymbol{y}-\boldsymbol{z} \right \|_2 
+$$
+$$
+\boldsymbol{w}^{(k+1)}=\boldsymbol{w}^{(k)}-\alpha \frac{\partial f_\mathrm{loss}}{\partial \boldsymbol{w}} , \boldsymbol{b}^{(k+1)}=\boldsymbol{b}^{(k)}-\alpha \frac{\partial f_\mathrm{loss}}{\partial \boldsymbol{b}} 
+$$
+```python
+# 定义可以自动微分的张量
+w = torch.tensor(10, requires_grad=True, dtype=torch.float)
+
+loss.backward() # 自动累加到 w.grad
+
+#梯度下降法中需要注意清零 grad
+if w.grad is not None:
+    w.grad.zero_()
+```

@@ -1,5 +1,5 @@
 '''
-A example to create linear and random tensors.
+An example to create linear and random tensors.
 
 functions.
     - torch.arange(start=0, end, step=1, *, out=None, dtype=None, layout=torch.strided, device=None, requires_grad=False) → Tensor

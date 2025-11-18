@@ -1,5 +1,5 @@
 '''
-A example of tensor indexing operations using PyTorch.
+An example of tensor indexing operations using PyTorch.
 
 Classifications:
     - Simple column and row indexing (important)

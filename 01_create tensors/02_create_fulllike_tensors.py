@@ -1,5 +1,5 @@
 '''
-A example to create tensors using torch.ones, torch.zeros() and torch.full_like()  functions.
+An example to create tensors using torch.ones, torch.zeros() and torch.full_like()  functions.
 
 functions.
   - torch.ones(size, *, dtype=None, layout=torch.strided, device=None, requires_grad=False) → Tensor

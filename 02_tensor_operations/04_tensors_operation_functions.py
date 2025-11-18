@@ -1,5 +1,5 @@
 '''
-A example to illustrate tensor operation functions.
+An example to illustrate tensor operation functions.
 
 Important functions:
     with arguments dim(0 for column, 1 for row): 
