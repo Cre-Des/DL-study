@@ -230,7 +230,10 @@ w = torch.tensor(10, requires_grad=True, dtype=torch.float)
 
 loss.backward() # 自动累加到 w.grad
 
-#梯度下降法中需要注意清零 grad
+# 梯度下降法中需要注意清零 grad
 if w.grad is not None:
     w.grad.zero_()
+
+# 设置自动微分的张量想转换为numpy数组使用detach()
+numpy_diff_detach = tensor_diff.detach().numpy()
 ```

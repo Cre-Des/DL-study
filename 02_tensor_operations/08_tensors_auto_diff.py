@@ -2,16 +2,19 @@
 An example of tensor auto-differentiation using PyTorch.
 
 Important functions:
-- torch.autograd.grad: Computes and returns the sum of gradients of outputs with respect to the inputs.
-- torch.autograd.backward: Computes the sum of gradients of outputs with respect to the graph leaves.
+- torch.grad: Computes and returns the sum of gradients of outputs with respect to the inputs.
+- torch.backward: Computes the sum of gradients of outputs with respect to the graph leaves.
+- detach(): if a tensor is set auto-differentiation, it can't be convert to numpy array.
 
 - An example of tensor auto-differentiation is provided in the function `_example_tensors_auto_diff`.
 - A gradient descent example is provided in the function `gradient_descent_example`.
+- An example of detach()
 
 '''
 
 # Import necessary libraries
 import torch
+import numpy as np
 
 def _example_tensors_auto_diff():
     # 1. define initial w tensor with requires_grad=True to track computation
@@ -69,7 +72,46 @@ def gradient_descent_example():
     print(f'Final w after gradient descent: {w.item()}')
     print(f'Final loss after gradient descent: {loss.item()}') 
 
+def use_detech():
+    tensor = torch.tensor([10, 20], dtype=torch.float)
+    print(f'Original tensor: {tensor}, type:{type(tensor)}')
+
+    tensor_diff = torch.tensor([10, 20], requires_grad= True, dtype=torch.float)
+    print(f'Original tensor: {tensor_diff}, type:{type(tensor_diff)}')
+
+    numpy_array = tensor.numpy()
+    print(f'Original tensor to numpy: {numpy_array}, type:{type(numpy_array)}')
+
+    # Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+    # numpy_array_diff = tensor_diff.numpy()
+    # print(f'Original tensor: {numpy_array_diff}, type:{type(numpy_array_diff)}')
+
+    tensor_diff_detach = tensor_diff.detach()
+    print(f'Detach tensor: {tensor_diff_detach}, type:{type(tensor_diff_detach)}')
+    print('-' * 30)
+
+    # Share memory
+    tensor_diff.data[0] = 100
+    print(f'Original tensor: {tensor_diff}, type:{type(tensor_diff)}')
+    print(f'Detach tensor: {tensor_diff_detach}, type:{type(tensor_diff_detach)}')
+    print('-' * 30)
+
+    # Show who can auto-diff
+    print(f'tensor_diff:{tensor_diff.requires_grad}')
+    print(f'tensor_diff_detach:{tensor_diff_detach.requires_grad}')
+    print('-' * 30)
+
+    numpy_diff_detach = tensor_diff_detach.numpy()
+    print(f'Original tensor to numpy: {numpy_diff_detach}, type:{type(numpy_diff_detach)}')
+    print('-' * 30)
+
+    # Final
+    numpy_diff_detach = tensor_diff.detach().numpy()
+    print(f'Original tensor to numpy: {numpy_diff_detach}, type:{type(numpy_diff_detach)}')
+
+
 
 if __name__ == '__main__':
     #_example_tensors_auto_diff()
-    gradient_descent_example()
+    #gradient_descent_example()
+    use_detech()
