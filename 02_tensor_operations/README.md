@@ -237,3 +237,14 @@ if w.grad is not None:
 # 设置自动微分的张量想转换为numpy数组使用detach()
 numpy_diff_detach = tensor_diff.detach().numpy()
 ```
+
+## 9. 线性回归案例
+使用 `nn.MSELoss()` 代替平方损失函数  
+使用 `data.DataLoader` 代替数据加载器  
+使用 `optim.SGD` 代替优化器  
+使用 `nn.Linear` 代替假设函数  
+
+详细代码参见 `10_Linear_regression.py`, 运行结果如下:
+![img.png](img.png)
+
+![img_1.png](img_1.png)
