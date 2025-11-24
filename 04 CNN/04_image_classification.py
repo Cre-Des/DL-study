@@ -158,7 +158,7 @@ if __name__ == '__main__':
     model = CIFAR10Classifier()
     # 计算模型参数
     # 参数：1. 模型对象；2. 输入数据维度(CHW) 3. 批次大小
-    summary(model, input_size=(3,32,32),batch_size=BATCH_SIZE)
+    summary(model, input_size=(3,32,32),batch_size=BATCH_SIZE, device='cpu')
     print('================模型训练=================')
     # train(train_dataset)
     print('================模型测试=================')
