@@ -1,1 +1,7 @@
 /06 NLP/01 Text Express/data/sgns.weibo.word
+/06 NLP/02 RNN/logs/2025-11-28_10-04-04/events.out.tfevents.1764295444.csh.12352.0
+/06 NLP/02 RNN/data/raw/synthesized_.jsonl
+/06 NLP/02 RNN/logs/2025-11-28_10-03-00/events.out.tfevents.1764295380.csh.15944.0
+/06 NLP/02 RNN/models/model.pt
+/06 NLP/02 RNN/data/processed/test.jsonl
+/06 NLP/02 RNN/data/processed/train.jsonl
